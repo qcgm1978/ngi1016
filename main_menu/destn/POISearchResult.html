@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)file:///D:/workspaces/Eclipse/NGI/main_menu/destn/index.html -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>目的地检索</title>
+<meta name="author" content="SitePoint">
+<link rel="stylesheet" href="../../css/base.css">
+<link rel="stylesheet" href="../../css/common.css">
+<link rel="stylesheet" href="css/style.css">
+<style type="text/css">
+#searchTable.keywordsearch  td:first-of-type{
+	background-image: url(../../images/btn02.png);
+    background-position-y: 50%;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 712px;
+    display: block;
+    line-height: 57px;
+}
+h1{width:315px;}
+article{height: 347px;}
+#searchTable.keywordsearch{margin-left: 29px;}
+#searchTable.cenpoisearch{ /*height:330px; */
+	width: 100%;
+	margin-left: 18px;
+}
+
+#searchTable.cenpoisearch td:nth-child(odd) {
+	background-image: url(images/images/btn05.png);
+	background-repeat: no-repeat;
+	line-height: 53px;
+	background-position-y: center;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 540px;
+	padding-right: 20px;
+}
+
+#searchTable.cenpoisearch td:nth-child(even) {
+	background-image: url(images/images/btn06.png);
+	background-repeat: no-repeat;
+	width: 183px;
+	background-position-y: center;
+}
+
+#searchTable.cenpoisearch td {
+	color: #24305d;
+	font-size: 24px;
+	font-weight: bold;
+	padding-left: 12px;
+    height: 57px;
+	white-space: nowrap;
+	overflow: hidden;
+	display:inline-block;
+	line-height: 57px;
+}
+#overlayerbg{
+    top:-110px;
+}
+</style>
+</head>
+<body>
+	<div class="w800 h480 bc vc"
+		style="background-image: url(../../images/bg01.png);">
+		<header class="h60">
+			<h1 class="fl fc f34 fb fw"></h1>
+            <input type="button"
+				style="background-image: url(images/images/filter.png); width: 113px; height: 43px;"
+				class=" mt10 none" id="filter">
+			<a href="javascript:void(0)"><img
+				src="../../images/back.png" width="113" height="43" alt="返回按钮"
+				class="fr mt10 mr8"></a>
+			<!--<button class='fr'>返回</button>-->
+		</header>
+		<!--  主题内容 -->
+		<article class="p4">
+            <aside class="tc mt10 none" id="aside_spinner">
+                <img src='../../images/spinner.gif' id="spinner"/>
+                <div id="overlayerbg"></div>
+            </aside>
+            <table id="searchTable">
+			</table>	
+			
+		</article>
+		<footer id="btn_toggle" class="tc">
+			<img src="../../images/previous_page_gray.png" width="153"
+				height="53" alt="上一页" id="prev_button"> <img
+				src="../../images/next_page.png" width="153" height="53"
+				alt="下一页" id="next_button">
+		</footer>
+        <aside id="msg_box_fail" class="tc fb f20 none css3_center ">
+            <h3 class="f24"></h3>
+            <img src='../../images/definitive02.png' width="103" height="43" alt="确定按钮">
+        </aside>
+	</div>	
+	<script src="../../javascript/jquery-1.7.1-min.js"></script>
+	<script src="../../javascript/common.js"></script>
+	<script src="../../javascript/constant.js"></script>
+	<script src="../../javascript/tools.js"></script>
+	<script src="../../javascript/layer.js"></script>
+    <script src="../../javascript/DragClass.js"></script>
+	<script type="text/javascript" src="js/POISearchResult.js"></script>
+    <script src="js/classes.js"></script>
+    <script src="../../javascript/tab.js"></script>
+</body>
+</html>

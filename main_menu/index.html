@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="author" content="SitePoint">
+<link rel="stylesheet" href='../css/base.css'>
+<link rel="stylesheet" href='../css/common.css'>
+<style type="text/css">
+table{margin-left: 12px;}
+#msg_box{top: 116px;
+left: 170px;
+}
+</style>
+
+</head>
+<body>
+<div class="w800 h480 bc vc pr" >
+ <header class="h60">
+  <h1 class="fl fc f34 fb fw h1_w">
+  主菜单
+  </h1>
+  <a href="javascript:void(0)"><img src="../images/back.png" width="113" height="43" alt="返回按钮" class='fr mt10 mr8'></a>
+  </header>
+  <!--  主题内容 -->
+  <article class="p4">
+<table width="100%" class="mt10">
+  <colgroup><col><col style=""></colgroup>
+  <tr>
+    <td><a href="javascript:void(0)"><img src="images/destination_search_menu.png" width="175" height="150" alt="目的地检索"></a></td>
+    <td><a href="javascript:void(0)"><img src="images/route_option_gray.png" width="175" height="150" alt="路径选项"></a></td>
+    <td><a href="javascript:void(0)"><img src="images/tmc.png" width="175" height="150" alt="动态交通"></a></td>
+    <td><a href="javascript:void(0)"><img src="images/system.png" width="175" height="150" alt="系统设定"></a></td>
+  </tr>
+  <tr>
+    <td><a href="javascript:void(0)"><img src="images/favorite.png" width="175" height="150" alt="收藏夹"></a></td>
+    <td><a href="javascript:void(0)"><img src="images/other.png" width="175" height="150" alt="辅助功能"></a></td>
+    <td><!--<a href="shell/index.html">--><img src="images/back_homepage.png" width="175" height="150" alt="返回主页"><!--</a>--></td>
+    <td><img src="images/exit.png" width="175" height="150" alt="退出程序"></td>
+  </tr>  
+</table>
+</article>
+<footer class='tc mt30'> <a href="javascript:void(0)"><img src="../images/back_to_map.png" alt="返回地图按钮" name="return_map" width="153" height="53" id="return_map"></a>
+</footer>
+</div>
+<!--退出程序弹出框开始{-->
+<aside id="msg_box" class="tc fb f20 none">
+	<h3 class="f24">请确认是否退出程序？</h3>
+    <img src='../images/yes.png' width="103" height="43" alt="退出程序确定按钮">
+    <img src='../images/no_on.png' width="103" height="43" alt="取消按钮" class="ml50">
+</aside>
+ <!--退出程序弹出框结束}--> 
+<!--<aside id="result" style="text-align:left;"></aside>-->
+<script src="../javascript/jquery-1.7.1-min.js"></script>
+<script src="../javascript/constant.js"></script>
+<script src="../javascript/layer.js"></script>
+<script type="text/javascript">
+$(function() {
+	//设置路径选项是否正常显示和点击
+	//如果进行了路径规划
+	if (JSON.parse(localStorage['tbt_state'])) {
+		$('img[src$="gray.png"]').each(function(index, element) {
+			var src = $(this).attr('src'), str = '';
+			str = src.replace(/_gray/, '');
+			$(this)
+			.attr('src', str)
+			.click(function(){
+				parent.window.GLOBAL.Event.NGIStateManager.goToNextState(GLOBAL.Constant.NGIStates.PathOptions,parent.window.GLOBAL.Event.NavScreenEvent.showNextInterfaceScreen,{nextPage:'path/index.html'});
+			});
+		});
+	}
+	else {
+		//解除灰色按钮图片绑定事件
+		$('img[alt="路径选项"]')
+		.off()
+		.css('cursor', 'default');
+	}
+	//退出程序按钮事件
+	$('img[alt="退出程序"]').click(function() {
+		GLOBAL.layer.normal.show();
+		$('img[alt="退出程序确定按钮"]').click(function() {
+		});
+		$('img[alt="取消按钮"]').click(function() {
+			GLOBAL.layer.normal.hide();
+		});
+	});
+	//绑定搜索类型图标点击事件
+	var mainMenu=['destn','traffic','system','favorite','assist'];
+	$('img[alt!="路径选项"]:not(:last)').click(function() {
+		var index=$('img[alt!="路径选项"]:not(:last)').index(this)- 1,parentglobal = parent.window.GLOBAL ;
+		var nextPage=mainMenu[index]+'/index.html';
+		var alt=$(this).attr('alt');
+		switch(alt){
+			case '目的地检索':
+                parentglobal.Event.NGIStateManager.goToNextState(parentglobal.Constant.NGIStates.PoiSearchByKeyword,parentglobal.Event.NavScreenEvent.showNextInterfaceScreen,{nextPage:nextPage});
+			break;
+			case '动态交通':
+                parentglobal.Event.NGIStateManager.goToNextState(parentglobal.Constant.NGIStates.TrafficInfo,parentglobal.Event.NavScreenEvent.showNextInterfaceScreen,{nextPage:nextPage});
+			break;
+			case '系统设定':
+                parentglobal.Event.NGIStateManager.goToNextState(parentglobal.Constant.NGIStates.SystemSettings,parentglobal.Event.NavScreenEvent.showNextInterfaceScreen,{nextPage:nextPage});
+			break;
+			case '收藏夹':
+                parentglobal.Event.NGIStateManager.goToNextState(parentglobal.Constant.NGIStates.Favorites,parentglobal.Event.NavScreenEvent.showNextInterfaceScreen,{nextPage:nextPage});
+			break;
+			case '辅助功能':
+                parentglobal.Event.NGIStateManager.goToNextState(parentglobal.Constant.NGIStates.AuxiliaryFuncs,parentglobal.Event.NavScreenEvent.showNextInterfaceScreen,{nextPage:nextPage});
+			break;
+			
+		}
+		
+	});
+    $('img[alt="返回按钮"],img[alt="返回地图按钮"]').live('click',function(){
+        var _event = parent.GLOBAL.Event;
+        if($(this).attr('alt')=='返回地图按钮'){
+            _event.NGIStateManager.returnToMapDirectly(_event.NavScreenEvent.showReturnToMapDirectlyScreen, {'backUrl': parent.GLOBAL.Constant.NGIStatesURL.Map});
+        }
+        else{
+            var nextState = _event.NGIStateManager.getNextState();//获取返回的状态
+            var backUrl =parent.GLOBAL.Constant.NGIStatesURL[nextState];
+            _event.NGIStateManager.goToPreviousState(_event.NavScreenEvent.ShowPreviousScreen, {'backUrl': backUrl});
+        }
+    });
+});
+</script>
+<script src="../javascript/tab.js"></script>
+</body></html>

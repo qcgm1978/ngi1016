@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>安全提示界面</title>
+<meta name="description" content="">
+<meta name="author" content="SitePoint">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">  
+<link rel="stylesheet" href='../css/base.css'>
+<link rel="stylesheet" href='../css/common.css'>
+<link rel="stylesheet" href='../css/bg.css'>
+<style type="text/css">
+strong{display:inline-block;}
+table{margin-left: 12px;}
+#area_content {padding-left: 49px;
+padding-top: 53px;}
+#img_first{margin-left:39px;}
+#img_last{margin-left:75px; position:inherit; }
+nav{margin-top:50px;}
+</style>
+
+</head>
+<body>
+<div class="w800 h480 bc vc pageBackground" >
+  <!--  主题内容 -->
+<article class="p4">
+<div id='area_content'>
+    <div  style="color:#E5F2FF;">
+        <p style="font: 36px/72px Georgia, FZ_CYUANJ, 'Times New Roman', Times, serif;letter-spacing:12px;text-shadow: 0px 2px rgba(255,255,255,0.5);font-weight: bold;
+-webkit-text-stroke: 1px #000;  text-align: center;">安全提示</p>
+        <p style="font: 24px/48px Georgia, FZ_CYUANJ, 'Times New Roman', Times, serif;font-weight: bold;">
+            1. 请遵守实际交通规则小心驾驶。<br>
+            2. 驾驶时查看显示屏幕可能会导致严重交通事故。   <br>
+            3. 请确保在驾驶时不要操作导航器，避免发生危险。  <br>
+            4. 本产品仅用于驾驶参考，请不要依此为您驾驶的唯一依据。  <br>
+            5. 请仔细阅读说明书中的安全须知部分。      <br>
+        </p>
+    </div>
+    <div class="none"  style="color:#E5F2FF;">
+        <p style="font: 36px/72px Georgia, FZ_CYUANF, 'Times New Roman', Times, serif;letter-spacing:12px;text-shadow: 0px 2px rgba(255,255,255,0.5);font-weight: bold;
+-webkit-text-stroke: 1px #000;  text-align: center;">安全提示</p>
+        <p style="font: 24px/48px Georgia, FZ_CYUANF, 'Times New Roman', Times, serif;font-weight: bold;">
+            1. 請遵守實際交通規則小心駕駛。 <br>
+            2. 駕駛時查看顯示屏幕可能會導致嚴重交通事故。 <br>
+            3. 請確保在駕駛時不要操作導航器，避免發生危險。 <br>
+            4. 本產品僅用於駕駛參考，請不要依此為您駕駛的唯一依據。 <br>
+            5. 請仔細閱讀說明書中的安全須知部分。 <br>
+        </p>
+    </div>
+    <div class="none"  style="color:#E5F2FF;">
+        <p style="font: 36px/72px Georgia, FZ_CYUANJ, 'Times New Roman', Times, serif;letter-spacing:0px;text-shadow: 0px 2px rgba(255,255,255,0.5);font-weight: bold;
+-webkit-text-stroke: 1px #000;  text-align: center;">Caution</p>
+        <p style="font: 24px/40px Georgia, FZ_CYUANJ, 'Times New Roman', Times, serif;font-weight: bold;">
+            1. Drive safely and obey traffic rules. <br>
+            2. Watching this scrren while the vehicle is in motion can <br>
+               lead to serious accident.<br>
+            3. Make selections only while stopped. <br>
+            4. Use the product as one source of reference. <br>
+            5. Read safely instructions in the user manual. <br>
+        </p>
+    </div>
+</div>
+<nav>
+    <span type="button"  id="img_first" class="squareButton " style="width: 153px;height: 53px;line-height: 53px;">简&nbsp&nbsp体</span>
+    <span class="squareButton fz_cyuanf" style="width: 153px;height: 53px;line-height: 53px;">繁&nbsp&nbsp體</span>
+    <span class="squareButton " style="width: 153px;height: 53px;line-height: 53px;">English</span>
+    <a id="img_last" class="squareButton " href="../navigate/index.html" style="width:153px; height:53px;line-height: 53px;" >确&nbsp&nbsp定</a>
+</nav>
+</article>
+  
+</div>
+<script src="../javascript/jquery-1.7.1-min.js"></script>
+<script src="../javascript/constant.js"></script>
+<!--新接口地址-->
+<!--<script language="javascript" src="http://apiv3.test.mapabc.com/map.js?key=f9bc6d756c9176716881e278638e0bb8f5bd78ddeb4ac3033e8ab3591e0fcefa8c26ce3fd36d5a0f"></script> -->
+<script type="text/javascript">
+$(function() {
+//绑定语种图片点击切换显示图片事件
+	$('nav span:lt(3)').click(function(e) {
+		$('#area_content div').hide();
+		var i = $(this).index();
+		$($('#area_content div').get(i)).show();
+	});
+		
+	//在安全提示界面，当用户无操作时间大于10秒，画面自动迁移到导航主界面。
+	initScreenSaver();
+	var saver;   
+	function initScreenSaver(){   
+		//blort;   
+		saver = new ScreenSaver({timeout:10000, url: '../navigate/index.html'});   
+	}  
+});
+
+
+</script>
+<script src="../javascript/tab.js"></script>
+</body></html>

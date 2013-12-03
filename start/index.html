@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>启动界面</title>
+<meta name="description" content="">
+<meta name="author" content="SitePoint">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">  
+<link rel="stylesheet" href='../css/base.css'>
+<link rel="stylesheet" href='../css/common.css'>
+<style type="text/css">
+div{background-image:url(images/bg05.png);}
+table{margin-left: 12px;}
+#logo{
+    margin-left: 225px;
+    margin-top: 98px;}
+article aside{margin-top:75px; text-align:center;  }
+#progress{background-image:url(images/loading_bg.png); width:410px; height:31px; display:inline-block;}
+#progress img{margin-top:6px;}
+strong { display:block; margin-top:5px; }
+</style>
+
+</head>
+<body>
+<div class="w800 h480 bc vc">
+    <!--无网络连接弹出框开始{-->
+    <aside id="msg_box_fail" class="tc fb f20 none css3_center ">
+        <h3 class="f24"></h3>
+        <img src='../images/definitive02.png' width="103" height="43" alt="确定按钮">
+    </aside>
+    <!--无网络连接弹出框结束}-->
+    <!--  主题内容 -->
+<article class="p4">
+  <img src="images/logo.png" width="351" height="213" alt="上海通用汽车logo" id="logo"> 
+  <aside>
+  <div id="progress"><img src="images/loading01.png" width="403" height="23" alt="滑块图标"></div> 
+  <strong><img src="images/loading.png" width="81" height="15" alt="加载中图标"></strong>
+  </aside>
+</article>
+
+</div>
+
+<script src="../javascript/jquery-1.7.1-min.js"></script>
+<script src="../javascript/constant.js"></script>
+<script src="../javascript/common.js"></script>
+<script src="../javascript/layer.js"></script>
+
+<!--新接口地址-->
+<!--<script language="javascript" src="http://apiv3.test.mapabc.com/map.js?key=f9bc6d756c9176716881e278638e0bb8f5bd78ddeb4ac3033e8ab3591e0fcefa8c26ce3fd36d5a0f"></script> -->
+<script src="../javascript/systemIni.js"></script>
+<script src="start.js"></script>
+<script src="../javascript/tab.js"></script>
+</body></html>

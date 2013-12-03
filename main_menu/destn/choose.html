@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="author" content="SitePoint">
+    <style type="text/css">
+            /*不能显式设置table高度，否则行高会变化以填充table占据空间。*/
+            /*将css移动到元素的style属性中，因为采用load方式加载页面到div后，手机客户端不支持页面再指定style*/
+            /*table{height:330px;}*/
+        #btn_toggle {
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+<div class="w800 h480 bc vc" style="background-image:url(../../images/bg01.png)" style="position:relative;">
+    <header class="h60">
+        <h1 class="fl fc f34 fb fw h1_w">
+            周边检索筛选
+        </h1>
+        <a href="javascript:void(0)"><img src="../../images/back.png" id="returnSearch" width="113" height="43" alt="返回"
+                                          class='fr mt10 mr8'></a>
+    </header>
+    <!--  主题内容 -->
+    <article class="p4" style="height:340px; overflow-y:auto; overflow-x:hidden;">
+        <table id='filterTable' width="100%" class="mt10">
+        </table>
+        <aside class="tc mt10 none" id="aside_spinner">
+            <img src='../../images/spinner.gif' id="spinner"/>
+            <div id="overlayerbg"></div>
+        </aside>
+    </article>
+
+    <footer class='tc mt10'>
+        <img src="images/images/search_all.png" width="153" height="53" alt="检索全部按钮" id="search_all">
+    </footer>
+    <script type="text/javascript" src="js/choose.js"></script>
+</div>
+</body>
+</html>

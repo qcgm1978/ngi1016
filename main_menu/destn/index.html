@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="author" content="SitePoint">
+<link rel="stylesheet" href='../../css/base.css'>
+<link rel="stylesheet" href='../../css/common.css'>
+<link rel="stylesheet" href='../../css/jquery-ui-1.8.23.custom.css'>
+<link rel="stylesheet" href='css/style.css'>
+<style type="text/css">
+        /*单元格背景开始*/
+    .li_a,.child_li_a{
+        border-radius:5px;
+        background-color: #9AC4D9;
+        background-image: -moz-linear-gradient(top, #B7D7E7, #95C1D7 50%, #5B96B4);
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#B7D7E7),to(#5B96B4), color-stop(0.5, #95C1D7));
+        box-shadow:1px 1px 1px #969696;
+
+    }
+    .li_a:active,.child_li_a:active{
+        background-image: -moz-linear-gradient(top, #E6F6FF, #D7EBF5 50%, #C4DCE8);
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#E6F6FF),to(#C4DCE8), color-stop(0.5, #D7EBF5));
+    }
+    #region_html article {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+</style>
+</head>
+<body>
+	<div class="w800 h480 bc vc pr">
+		<header class="h60">
+			<h1 class="fl fc f34 fb fw">目的地检索</h1>
+			<img src="../../images/back.png"
+				width="113" height="43" alt="返回按钮" class='fr mt10 mr8'>
+			<!--<button class='fr'>返回</button>-->
+		</header>
+		<!--  主题内容 -->
+		<article class="p4">
+			<form
+				style="background-image: url(images/images/bg02.png); background-repeat: no-repeat; line-height: 60px;"
+				class="h60">
+				<input type="button" value="" id="region"
+					style="background-image: url(images/images/bg03.png); width: 315px; height: 41px;"
+					class=" fc_top f24 fb  ml5 vm">
+				<!--  pattern属性的值必须匹配完整的字符串 -->
+
+				<input type='search' required autocomplete autofocus
+					placeholder="请输入检索关键字" id="keyword" pattern=".*\S+.*"
+					style="background-image: url(images/images/bg04.png); width: 315px; height: 41px;"
+					class="f24 fb vm ml5 fc_td" x-webkit-speech>
+
+				<!--<input type="text" name="q" id="search-kw" autocomplete="off" x-webkit-speech />-->
+
+
+				<input type="submit" value="" id="search_poi"
+					style="background-image: url(images/images/retrieval.png); width: 110px; height: 41px;"
+					class="vm ml5">
+			</form>
+			<aside class="tc mt10 none" id="aside_spinner">
+				<img src='../../images/spinner.gif' id="spinner" />
+                <div id="overlayerbg"></div>
+			</aside>
+			<table width="100%" class="mt10">
+                <colgroup>
+                    <col>
+                    <col style="">
+                </colgroup>
+			</table>
+            <!--无检索历史记录提示-->
+            <div id="div_no_history" class="fw tc f24 mt10" style="display: none">无检索历史记录</div>
+			<!--无检索结果弹出框开始{-->
+			<aside id="msg_box_fail" class="tc fb f20 none" style="display: none;">
+				<h3 class="f24">无检索结果</h3>
+				<img src='../../images/definitive02.png' width="103"
+					height="43" alt="确定按钮">
+			</aside>
+			<!--无检索结果弹出框结束}-->
+			<footer class="tc mt5">
+				<img src="../../images/back_to_map.png" width="153"
+					height="53" alt="返回地图按钮" id="return_map">
+			</footer>
+		</article>		
+
+	</div>
+	<script src="../../javascript/jquery-1.7.1-min.js"></script>
+	<script src="../../javascript/common.js"></script>
+	<script src="../../javascript/constant.js"></script>
+    <script src="../../javascript/tab.js"></script>
+    <script src="../../javascript/layer.js"></script>
+	<script src="../../javascript/tools.js"></script>
+    <script src="../../javascript/jquery-ui-1.8.23.custom.min.js"></script>
+	<script type="text/javascript" src="js/POISearch.js"></script>
+</body>
+</html>

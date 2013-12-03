@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* body{color:white; }*/
+  .bg_color{background-color:#2F354D;}
+/* p{background-image:url(../navigate/images/panel27.png); width:473px; height:123px; margin:100px auto; color:black; }*/
+ .pr_span{left:-60px; top:84px;}
+ .pr_span_time{left:150px; top:84px;}
+ input[type="text"] {text-align: center;}
+  input[type="tel"] {text-align: center;}
+  h1{
+    margin-left: 12px;
+    margin-top: 11px;
+}
+/*不再显示滚动条*/
+/*article{ overflow-y:auto;overflow-x: hidden; /*article height由各页面单独设置，因为背景图高度不同}*/
+a{text-decoration: none;
+color: #24305d;}
+table{margin-left: 12px;}
+.h1_w{width:315px;}
+
+.fc_text{color: #24305d;}
+/*隐藏灵格斯嵌入div*/
+#lingoes_plugin_object{display:none;}
+::-webkit-scrollbar {
+      width: 21px;/*对垂直流动条有效*/
+	  background-image:url(../images_pres/scroll_bg.png);
+	  background-repeat:no-repeat;
+	  /**/
+	  background-size:cover;
+	  
+    }
+	 /* 设置滚动条的滑动块，直接设置滑动块背景图无效？ */
+::-webkit-scrollbar-thumb {
+	 height:107px;
+	 /*  bg img not get the middle to not go through the top and bottom. So, instead, with another new CSS trick: border-image. refference:http://almaer.com/blog/creating-custom-scrollbars-with-css-how-css-isnt-great-for-every-task*/
+    -webkit-border-image: url(../images_pres/scroll.png) 3 stretch stretch;
+	/*兼容火狐*/
+	-moz-border-image:url(../images_pres/scroll.png) 3 stretch stretch;
+	border-width: 3px;	
+}
+::-webkit-scrollbar-thumb:active {-webkit-border-image: url(../images_pres/scroll_on.png) 3 stretch stretch;}

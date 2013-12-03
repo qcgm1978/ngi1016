@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="SitePoint">
+    <link rel="stylesheet" href='../../css/base.css'>
+    <link rel="stylesheet" href='../../css/common.css'>
+    <style type="text/css">
+        strong{display:inline-block;}
+        div{background-image:url(../../images/bg01.png);}
+        table{margin-left: 12px;}
+        td {width: 197px;}
+        article{ height:340px;}
+        #msg_box img {margin-top: 50px;}
+        #msg_box h3{margin-left: 40px; margin-right: 40px;}
+    </style>
+</head>
+<body>
+    <div class="w800 h480 bc vc pr">
+     <header class="h60">
+      <h1 class="fl fc f34 fb fw h1_w">
+      辅助功能
+      </h1>
+      <a href="../index.html"><img src="../../images/back.png" width="113" height="43" alt="返回按钮" class='fr mt10 mr8'></a>
+      </header>
+      <!--  主题内容 -->
+    <article class="p4 pr">
+    <table width="100%" class="mt10">
+      <tr>
+        <td><a href="javascript:void(0)"><img src="images/gps.png" width="175" height="150" alt="GPS信息"></a></td>
+
+        <td><a href="javascript:void(0)"><img src="images/version.png" width="175" height="150" alt="版本信息"></a></td>
+        <td><img src="images/factory_settings.png" width="175" height="150" alt="出厂设置"></td>
+        <td><!--
+        快速入门功能已取消
+        <a href="introduction"><img src="images/help.png" width="175" height="150" alt="快速入门"></a>--></td>
+      </tr>
+    </table>
+    </article>
+    <footer class='tc mt10'> <img src="../../images/back_to_map.png" alt="返回地图按钮" name="return_map" width="153" height="53" id="return_map">
+    </footer>
+    </div>
+    <!--恢复出厂设置弹出框开始{-->
+    <aside id="msg_box" class="tc fb f20 none">
+        <h3 class="f24">恢复出厂设置后所有状态将初始化，请确认是否恢复出厂设置？</h3>
+        <img src='../../images/yes.png' width="103" height="43" alt="恢复设置确定按钮">
+        <img src='../../images/no_on.png' width="103" height="43" alt="取消按钮" class="ml50">
+    </aside>
+     <!--恢复出厂设置弹出框结束}-->
+    <script src="../../javascript/jquery-1.7.1-min.js"></script>
+    <script src="../../javascript/constant.js"></script>
+    <script src="../../javascript/common.js"></script>
+    <script src="../../javascript/layer.js"></script>
+    <script src="../../javascript/tab.js"></script>
+    <script src="../../javascript/systemIni.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

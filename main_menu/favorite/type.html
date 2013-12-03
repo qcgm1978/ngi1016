@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="SitePoint">
+    <link rel="stylesheet" href='../../css/base.css'>
+    <link rel="stylesheet" href='../../css/common.css'>
+    <style type="text/css">
+        table {
+            margin-left: 29px;
+            width:100%;
+        }
+        article {
+            height: 336px;
+            overflow: hidden;
+        }
+
+        td:first-of-type {
+            width: 712px;
+            text-align: left;
+            background-image: url(../../images/btn02.png);
+            background-repeat: no-repeat;
+            font-size: 24px;
+            font-weight: bold;
+            padding-left: 20px;
+
+            background-position-y: 50%;
+
+        }
+
+        td, .fc_td {
+            color: #24305d;
+            height: 56px;
+        }
+
+        td.h57 {
+            height: 57px; /*width:733px;*/
+            /*设置以下六个属性，确保文字过长部分被省略号截断*/
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 712px;
+            display: block;
+            line-height: 57px;
+        }
+        #delete_all{
+            position: absolute;
+            right: 35px;
+        }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="w800 h480 bc vc pr">
+    <header class="h60">
+        <h1 class="fl fc f34 fb fw h1_w"></h1>
+
+        <h1 class="fl fc f34 fb fw h1_w">
+            共<span></span>条
+        </h1>
+        <a href="index.html"><img src="../../images/back.png"
+                                  alt="返回按钮" class='fr mt10 mr8' width="113" height="43"></a>
+    </header>
+    <!--  主题内容 -->
+    <article class="p4">
+        <table class="mt10" id="favorite">
+
+        </table>
+    </article>
+    <footer class='tc mt10' style="margin-top: 5px">
+        <img src="../../images/previous_page_gray.png" width="153"
+				height="53" alt="上一页" id="prev_button"> <img
+				src="../../images/next_page_gray.png" width="153" height="53"
+				alt="下一页" id="next_button">
+        <img src='images/delete_all_gray.png' width="153" height="53"
+             alt="全部删除按钮" id="delete_all">
+    </footer>
+</div>
+<aside id="msg_box" class="tc fb f20 none css3_center">
+    <h3 class="f24"></h3>
+    <img src='../../images/yes_on.png' width="103" height="43" alt="是按钮">
+    <img src='../../images/no.png' width="103" height="43" alt="否按钮">
+</aside>
+<script type="text/tmpl" id="tmpl-item">
+    <tr style="display:{display}">
+        <td data-id={id}>{name}</td>
+    </tr>
+</script>
+<!--<aside id="result" style="text-align:left;"></aside>-->
+<script src="../../javascript/jquery-1.7.1-min.js"></script>
+<script src="../../javascript/constant.js"></script>
+<script type="text/javascript" src="js/favoriteServiceLocal.js"></script>
+<script type="text/javascript" src="js/favoriteShow.js"></script>
+<script type="text/javascript" src='../../javascript/layer.js'></script>
+<script>
+    $('img[alt="返回按钮"],img[alt="返回地图按钮"]').live('click',function(){
+        var _event = parent.GLOBAL.Event,nextState = _event.NGIStateManager.getNextState();//获取返回的状态
+        var backUrl =parent.GLOBAL.Constant.NGIStatesURL[nextState];
+        _event.NGIStateManager.goToPreviousState(_event.NavScreenEvent.ShowPreviousScreen, {'backUrl': backUrl});
+    });
+</script>
+
+</body>
+</html>
